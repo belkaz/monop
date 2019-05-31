@@ -13,7 +13,7 @@ class Task extends Component {
                       'top'  : this.props.tt + 'px' } 
                 }                
                 id = { this.props.data.ID}>
-                { this.props.data.INFO}
+                { this.props.data.ID}
             </div>
         )
     }
