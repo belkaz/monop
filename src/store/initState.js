@@ -15,10 +15,11 @@ let initState = {
             'WHERE' : '3',
             'WHEN' : '4',
             'REASON' : '5',
-            'ACTIVE' : '+',
+            'ACTIVE' : '-',
             'ID' : 1
         }
-    ]
+    ],
+    num : 1
 }
 
 export default initState;

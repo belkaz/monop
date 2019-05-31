@@ -14,13 +14,17 @@ let initRed = ( state = initState, action ) => {
                 'ACTIVE' : '+',
                 'ID' : x.length
             }
-            ) 
+            ); 
             return {
-                ...state
+                ...state,
+                tasks : x                
             };
         case 'CLOSE_TASK' :
+            let y = state.tasks;
+            y [ action.id ].ACTIVE = '-';            
             return {
-                ...state
+                ...state,
+                tasks: y,                
             };
         default :
             return state
