@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 
 import ACloseTask from './ACloseTask';
 
-import App from '../App/App';
-
 class Task extends Component {
     
     clickHandler = () => {
