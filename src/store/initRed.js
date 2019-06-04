@@ -13,18 +13,16 @@ let initRed = ( state = initState, action ) => {
                 'REASON' : '5',
                 'ACTIVE' : '+',
                 'ID' : x.length
-            }
-            ); 
-            return {
-                ...state,
-                tasks : x                
+            }); 
+            
+            return {                
+                tasks : x.map( (el) => { return el })              
             };
         case 'CLOSE_TASK' :
             let y = state.tasks;
-            y [ action.id ].ACTIVE = '-';            
-            return {
-                ...state,
-                tasks: y,                
+            y [ action.id ].ACTIVE = '-';                     
+            return {                
+                tasks : y.map( (el) => { return el })               
             };
         default :
             return state

@@ -8,8 +8,7 @@ import ACloseTask from './ACloseTask';
 class Task extends Component {
     
     clickHandler = () => {
-        this.props.tryToCloseTask ( this.props.data.ID/1 )
-       this.setState({ a: 12})       
+        this.props.tryToCloseTask ( this.props.data.ID/1 )        
     };
     
     render() {
