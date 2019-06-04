@@ -4,9 +4,16 @@ import './Main.sass';
 
 import { connect } from 'react-redux';
 import Task from '../Task/Task';
-import AAddTask from './AAddTask';
+import AddTask from '../AddTask/AddTask';
 
 class Main extends Component {
+  constructor ( props ) {
+    super ();
+    this.state = {
+        arr : [],
+        sub : 0
+    }
+}
     componentDidMount () {    
         this.setState({ arr : this.genTasks( this.props.tasks ) })
       }
@@ -14,7 +21,6 @@ class Main extends Component {
     componentWillReceiveProps ( newProps ) {     
         this.setState({ arr : this.genTasks ( newProps.tasks )})    
       }
-
     genTasks = ( pr ) => {
         let lefts = [ 50, 300, 550, 800, 1050, 1300, 1550];
         let tops = [ 50, 350, 650, 950, 1250];
@@ -39,22 +45,19 @@ class Main extends Component {
            return xx;     
       };  
 
-    clickHandler = ( ) => {    
-        this.props.tryToAddTask ( )              
-      };  
-    constructor ( props ) {
-        super ();
-        this.state = {
-            arr : []
-        }
-    }
+    clickHandler ( qq ) {      
+      var xx = qq ===0 ? 100 : 0;
+      this.setState ({ sub : xx })
+    };
+    
     render() {
         return (
             <div className = 'Main'>
-                { this.state.arr }
+                <div>{ this.state.arr }</div>
+                <AddTask v = {''+this.state.sub } />
                 <button 
                 className = 'AppAddTask'
-                onClick = { this.clickHandler }> AddTask </button>
+                onClick = { () => { this.clickHandler( this.state.sub )}  }> AddTask </button>
             </div>
         )
     } 
@@ -64,12 +67,7 @@ let mapS = state => {
     return {
       tasks : state.tasks    
     }
-  }
-  
-  let mapAction = dispatch => {
-    return {
-      tryToAddTask : x => dispatch ( AAddTask () )
-    }
-  }
+}
+ 
 
-export default connect(mapS, mapAction) ( Main );
+export default connect(mapS) ( Main );

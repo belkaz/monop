@@ -19,8 +19,12 @@ class Task extends Component {
                     { 'left' : this.props.ll + 'px', 
                       'top'  : this.props.tt + 'px' } 
                 }                
-                id = { this.props.data.ID}>
-                { this.props.data.ID}
+                id = { this.props.data.ID}>                
+                <p className = 'TaskInfo'> { this.props.data.INFO }</p>
+                <p className = 'TaskWho'> { this.props.data.WHO }</p>
+                <p className = 'TaskWhen'> { this.props.data.WHEN }</p>
+                <p className = 'TaskReason'> { this.props.data.REASON }</p>
+                <p className = 'TaskAdd'> {'___________________'}</p>
                 <button
                     className = 'TaskCloseBut'
                     onClick = { this.clickHandler }>Close task </button>
@@ -30,9 +34,7 @@ class Task extends Component {
 }
 
 let mapState = state => {
-    return {
-        tasks: state.tasks
-    }
+    return {}
 }
 
 let mapAction = dispatch => {

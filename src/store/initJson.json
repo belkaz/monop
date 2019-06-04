@@ -1,0 +1,20 @@
+{
+    "0": {
+        "INFO" : "Close transfer",
+        "WHO" : "IvanovVV 21222 1202",
+        "WHERE" : "16401",
+        "WHEN" : "2019-06-20_20",
+        "REASON" : "dz 2019-05-05_11111",
+        "ACTIVE" : "+",
+        "ID" : 0
+    },
+    "1" : {
+        "INFO" : "Close transfer",
+        "WHO" : "PetrovVV 21222 1202",
+        "WHERE" : "16402",
+        "WHEN" : "2019-06-20_20",
+        "REASON" : "dz 2019-05-05_11111",
+        "ACTIVE" : "+",
+        "ID" : 1
+    }
+}

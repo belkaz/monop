@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import initRed from './store/initRed';
-import initState from './store/initState';
 
 let bas = createStore ( initRed , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

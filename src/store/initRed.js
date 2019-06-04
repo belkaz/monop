@@ -6,27 +6,28 @@ let initRed = ( state = initState, action ) => {
             let x = state.tasks;
             x.push( 
                 {
-                'INFO' : '1',
-                'WHO' : '2',
-                'WHERE' : '3',
-                'WHEN' : '4',
-                'REASON' : '5',
+                'INFO' : 'Close transfer',
+                'WHO' : 'IvanovVV 21222 1202',
+                'WHERE' : '16401',
+                'WHEN' : '2019-06-20_20',
+                'REASON' : 'dz 2019-05-05_11111',
                 'ACTIVE' : '+',
                 'ID' : x.length
             }); 
             
-            return {                
+            return { 
+                ...state,               
                 tasks : x.map( (el) => { return el })              
             };
         case 'CLOSE_TASK' :
             let y = state.tasks;
             y [ action.id ].ACTIVE = '-';                     
-            return {                
+            return {   
+                ...state,             
                 tasks : y.map( (el) => { return el })               
             };
-        default :
-            return state
-            
+        default : 
+            return state            
     }
 }
 
