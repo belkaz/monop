@@ -14,7 +14,9 @@ class AddTaskTransfer extends Component {
             curEndDATE : '2019-01-01',
             curFROM : '',
             curTO : '',
-            curREASON : ''
+            curREASON : '',
+            curSTime : '08:00',
+            curETime : '20:00'
         }
     }
     genFIOSelect () {
@@ -64,12 +66,22 @@ class AddTaskTransfer extends Component {
             curREASON : e.target.value
         })
     };
+    ETimehandler = ( e ) => {
+        this.setState({ 
+            curETime : e.target.value
+        });          
+    };
+    STimehandler = ( e ) => {
+        this.setState({ 
+            curSTime : e.target.value
+        });  
+    };
     AddTaskCloseHandler = () => {        
             this.props.tryToAddTask ( {
                 typ : 0,
                 WHO : this.state.curFIO,
-                WHENSTART: this.state.curStartDATE,
-                WHENEND : this.state.curEndDATE,
+                WHENSTART: this.state.curStartDATE + '_' +this.state.curSTime ,
+                WHENEND : this.state.curEndDATE + '_' +this.state.curETime,
                 FROM : this.state.curFROM,
                 TO : this.state.curTO,
                 REASON : this.state.curREASON
@@ -80,7 +92,9 @@ class AddTaskTransfer extends Component {
                 curEndDATE : '2019-01-01',
                 curFROM : '',
                 curTO : '',
-                curREASON : ''
+                curREASON : '',
+                curSTime : '08:00',
+                curETime : '20:00'
             })                  
     };
     render () {
@@ -116,6 +130,16 @@ class AddTaskTransfer extends Component {
                 className = 'ATTWhenStart ATTel' 
                 type = 'date'
                 onChange = { this.StartDATEhandler }></input>
+            <input
+                className = 'ATTWhenSTime ATTel' 
+                type = 'time'
+                value = { this.state.curSTime }
+                onChange = { this.STimehandler }></input>
+            <input
+                className = 'ATTWhenETime ATTel' 
+                type = 'time'
+                value = { this.state.curETime }
+                onChange = { this.ETimehandler }></input>
             <p 
                 className = 'ATTWhenEndLab ATTLab'>end</p>
             <input
