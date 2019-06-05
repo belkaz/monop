@@ -32,7 +32,7 @@ class Main extends Component {
                let x = <Task 
                   data = { element }
                   ll = { lefts[i] }
-                  tt = { tops [j] } 
+                  tt = { tops[j] } 
                   key = { element.ID }/>
                 i += 1;
                 if ( i=== 7) {

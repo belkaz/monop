@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AAddTask from './AAddTask';
 
 import './AddTask.sass';
+import { connect } from 'react-redux';
 
 class AddTask extends Component {
     constructor ( props ) {
@@ -17,17 +18,18 @@ class AddTask extends Component {
     genAddTask () {
         switch ( this.state.selectedValue ) {
             case 'Transfer' : {
-                
-            };
+                break
+            }
+            
             case 'TempAddRights' : {
-
-            };
+                break
+            }
             case 'CloseUser' :{
-
-            };
+                break
+            }
             case 'LockUser' : {
-
-            };
+                break
+            }
             default : {}
         }
     }
@@ -53,10 +55,16 @@ class AddTask extends Component {
     }
 }
 
- 
+let mapS = state => {
+    return {
+
+    }
+} 
+
 let mapAction = dispatch => {
     return {
       tryToAddTask : x => dispatch ( AAddTask () )
     }
   }
-export default AddTask;
+
+export default connect(mapS, mapAction) (AddTask);

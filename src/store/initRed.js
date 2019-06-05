@@ -21,7 +21,7 @@ let initRed = ( state = initState, action ) => {
             };
         case 'CLOSE_TASK' :
             let y = state.tasks;
-            y [ action.id ].ACTIVE = '-';                     
+            y[ action.id ].ACTIVE = '-';                     
             return {   
                 ...state,             
                 tasks : y.map( (el) => { return el })               
