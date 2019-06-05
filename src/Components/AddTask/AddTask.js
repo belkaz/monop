@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import AAddTask from './AAddTask';
-
 import './AddTask.sass';
 import { connect } from 'react-redux';
+
+import AddTaskClose from './AddTaskClose/AddTaskClose';
 
 class AddTask extends Component {
     constructor ( props ) {
@@ -12,10 +12,9 @@ class AddTask extends Component {
             selectedValue : 0
         }
     }
-    clickHandler ( ) {    
-        this.props.tryToAddTask ( )              
-      }; 
+   
     genAddTask () {
+        let x = <AddTaskClose />
         switch ( this.state.selectedValue ) {
             case 'Transfer' : {
                 break
@@ -25,6 +24,7 @@ class AddTask extends Component {
                 break
             }
             case 'CloseUser' :{
+                x = <AddTaskClose />
                 break
             }
             case 'LockUser' : {
@@ -32,6 +32,7 @@ class AddTask extends Component {
             }
             default : {}
         }
+        return x
     }
     render() {
         return (
@@ -49,7 +50,7 @@ class AddTask extends Component {
                     <option>CloseUser</option>
                     <option>LockUser</option>
                 </select>
-
+                { this.genAddTask() }
             </div>
         )
     }
@@ -57,14 +58,10 @@ class AddTask extends Component {
 
 let mapS = state => {
     return {
-
+        v : state.addTaskOpacity
     }
 } 
 
-let mapAction = dispatch => {
-    return {
-      tryToAddTask : x => dispatch ( AAddTask () )
-    }
-  }
 
-export default connect(mapS, mapAction) (AddTask);
+
+export default connect( mapS ) (AddTask);

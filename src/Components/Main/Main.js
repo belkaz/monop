@@ -3,25 +3,26 @@ import React, { Component } from 'react';
 import './Main.sass';
 
 import { connect } from 'react-redux';
+import AShowAddTaskBar from './AShowAddTaskBar';
+
 import Task from '../Task/Task';
 import AddTask from '../AddTask/AddTask';
+
 
 class Main extends Component {
   constructor ( props ) {
     super ();
     this.state = {
-        arr : [],
-        sub : 0
+      arr : []        
     }
-}
-    componentDidMount () {    
-        this.setState({ arr : this.genTasks( this.props.tasks ) })
-      }
-    
-    componentWillReceiveProps ( newProps ) {     
-        this.setState({ arr : this.genTasks ( newProps.tasks )})    
-      }
-    genTasks = ( pr ) => {
+  }
+  componentDidMount () {    
+    this.setState({ arr : this.genTasks( this.props.tasks ) })
+  };    
+  componentWillReceiveProps ( newProps ) {     
+    this.setState({ arr : this.genTasks ( newProps.tasks )})    
+  };
+  genTasks = ( pr ) => {
         let lefts = [ 50, 300, 550, 800, 1050, 1300, 1550];
         let tops = [ 50, 350, 650, 950, 1250];
         let i = 0;
@@ -43,31 +44,33 @@ class Main extends Component {
               }
             }); 
            return xx;     
-      };  
-
-    clickHandler ( qq ) {      
-      var xx = qq ===0 ? 100 : 0;
-      this.setState ({ sub : xx })
-    };
-    
-    render() {
-        return (
-            <div className = 'Main'>
-                <div>{ this.state.arr }</div>
-                <AddTask v = {''+this.state.sub } />
-                <button 
-                className = 'AppAddTask'
-                onClick = { () => { this.clickHandler( this.state.sub )}  }> AddTask </button>
-            </div>
-        )
+  }; 
+  clickHandler = () => {      
+    this.props.tryToSwitchATBar()
+  };    
+  render() {
+    return (
+      <div className = 'Main'>
+        <div>{ this.state.arr }</div>
+        <AddTask />
+        <button 
+          className = 'AppAddTask'
+          onClick = { this.clickHandler }> AddTask </button>
+        </div>
+      )
     } 
 }
 
 let mapS = state => {
-    return {
-      tasks : state.tasks    
-    }
+  return {
+    tasks : state.tasks    
+  }
+};
+
+let mapAction = dispatch => {
+  return {
+    tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() )
+  }
 }
  
-
-export default connect(mapS) ( Main );
+export default connect( mapS, mapAction ) ( Main );

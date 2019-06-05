@@ -19,7 +19,9 @@ let initState = {
             'ID' : 1
         }
     ],
-    num : 1
+    num : 1,
+    fios : ['IvanovVV', 'PetrovPP', 'SidorovSS'],
+    addTaskOpacity : 0
 }
 
 export default initState;
