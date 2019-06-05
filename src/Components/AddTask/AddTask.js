@@ -4,6 +4,7 @@ import './AddTask.sass';
 import { connect } from 'react-redux';
 
 import AddTaskClose from './AddTaskClose/AddTaskClose';
+import AddTaskTransfer from './AddTaskTransfer/AddTaskTransfer';
 
 class AddTask extends Component {
     constructor ( props ) {
@@ -14,9 +15,10 @@ class AddTask extends Component {
     }
    
     genAddTask () {
-        let x = <AddTaskClose />
+        let x = <AddTaskTransfer />
         switch ( this.state.selectedValue ) {
             case 'Transfer' : {
+                x = <AddTaskTransfer />
                 break
             }
             

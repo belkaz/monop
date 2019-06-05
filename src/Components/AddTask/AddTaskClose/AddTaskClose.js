@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import AAddTask from '../AAddTask';
-import AShowAddTaskBar from '../../Main/AShowAddTaskBar';
 
 import './AddTaskClose.sass';
 
@@ -44,8 +43,12 @@ class AddTaskClose  extends Component {
                 WHO : this.state.curFIO,
                 WHEN: this.state.curDATE,
                 REASON : this.state.curREASON
-            } );
-            this.props.tryToSwitchATBar ()          
+            } );   
+            this.setState({
+                curFIO : '',
+                curDATE : '2019-01-01',
+                curREASON : ''
+            })                  
     };
     render () {
         return (
@@ -91,8 +94,7 @@ let mapState = state => {
 }
 let mapAction = dispatch => {
     return {
-      tryToAddTask : x => dispatch ( AAddTask ( x ) ),    
-      tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() )     
+      tryToAddTask : x => dispatch ( AAddTask ( x ) )     
     }
   }
 

@@ -5,6 +5,28 @@ let initRed = ( state = initState, action ) => {
         case 'ADD_TASK' :
             let x = state.tasks;
             switch ( action.data.typ ) {
+                case 0 : 
+                    x.push( 
+                        {
+                        'INFO' : 'Transfer to '+ action.data.TO,
+                        'WHO' : '' + action.data.WHO,
+                        'WHERE' : ''+action.data.TO,
+                        'WHEN' : '' + action.data.WHENSTART,
+                        'REASON' : '' + action.data.REASON,
+                        'ACTIVE' : '+',
+                        'ID' : x.length
+                    });
+                    x.push( 
+                        {
+                        'INFO' : 'Transfer back to '+action.data.FROM,
+                        'WHO' : '' + action.data.WHO,
+                        'WHERE' : ''+action.data.FROM,
+                        'WHEN' : '' + action.data.WHENEND,
+                        'REASON' : '' + action.data.REASON,
+                        'ACTIVE' : '+',
+                        'ID' : x.length
+                    });
+                    break; 
                 case 2 : 
                     x.push( 
                         {
@@ -31,7 +53,8 @@ let initRed = ( state = initState, action ) => {
             };            
             return { 
                 ...state,               
-                tasks : x.map( (el) => { return el })              
+                tasks : x.map( (el) => { return el }),
+                addTaskOpacity : 0             
             };
         case 'SWITCH_ATBAR' : 
             return {
