@@ -1,0 +1,35 @@
+{
+    "FIO" : "PetrovPP",
+    "CODE0" : "2222",
+    "CODE1" : "2222",
+    "FILENAME" : "PetrovPP",
+    "UNIT" : "UNIT2",
+    "EMP" : "manager",
+    "CLOSED" : "-",
+    "KEY" : {
+        "ID" : "-",
+        "ENDED" : "-"
+    },
+    "RIGHTS" : {
+        "PO0" : {"UNIT0" : "+"},
+        "PO1" : {"UNIT0" : "A_B_C_D"},
+        "PO2" : {"UNIT0" : "A_D_C"},
+        "PO4" : {},
+        "PO5": "-"
+    },
+    "LOGS" : [
+        {
+            "REASON" : "2019-06-06_12",
+            "TYPE" : "LOCK LVS",
+            "START" : "2019-06-07",
+            "END" : "2019-06-10",
+            "CLOSED" : "-"
+        },
+        {
+            "REASON" : "2019-06-07_13",
+            "TYPE" : "CLOSE",
+            "START" : "2019-06-10",
+            "CLOSED" : "-"
+        }
+    ]
+}
