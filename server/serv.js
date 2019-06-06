@@ -1,6 +1,7 @@
 const express = require ('express');
 const app = express();
 const fs = require ('fs');
+const cors = require ('cors');
 
 let files = [];
 
@@ -40,6 +41,8 @@ function FindUnclosedTasts () {
     })
     return rez;
 }
+
+app.use( cors() )
 
 app.get('/unclosed', function ( req, res, next ) {
     res.send( FindUnclosedTasts() )

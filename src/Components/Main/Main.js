@@ -4,22 +4,23 @@ import './Main.sass';
 
 import { connect } from 'react-redux';
 import AShowAddTaskBar from './AShowAddTaskBar';
+import ALoadData from './ALoadData';
 
 import Task from '../Task/Task';
 import AddTask from '../AddTask/AddTask';
-
 
 class Main extends Component {
   constructor ( props ) {
     super ();
     this.state = {
       arr : []        
-    }
-  }
-  componentDidMount () {    
+    }    
+  }  
+
+  componentDidMount ( ) {    
     this.setState({ arr : this.genTasks( this.props.tasks ) })
   };    
-  componentWillReceiveProps ( newProps ) {     
+  componentWillReceiveProps ( newProps ) {      
     this.setState({ arr : this.genTasks ( newProps.tasks )})    
   };
   genTasks = ( pr ) => {
@@ -48,9 +49,11 @@ class Main extends Component {
   clickHandler = () => {      
     this.props.tryToSwitchATBar()
   };    
-  render() {
+  render() {    
     return (
-      <div className = 'Main'>
+      <div 
+        className = 'Main'
+       >
         <div>{ this.state.arr }</div>
         <AddTask />
         <button 
@@ -69,7 +72,8 @@ let mapS = state => {
 
 let mapAction = dispatch => {
   return {
-    tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() )
+    tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() ),
+    tryToLoadData : y => dispatch ( ALoadData (  ))
   }
 }
  
