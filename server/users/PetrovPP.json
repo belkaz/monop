@@ -20,16 +20,27 @@
     "LOGS" : [
         {
             "REASON" : "2019-06-06_12",
-            "TYPE" : "LOCK LVS",
+            "TYPE" : "TRANSFER",
             "START" : "2019-06-07",
             "END" : "2019-06-10",
+            "FROM" : "UNIT10",
+            "TO" : "UNIT12",
             "CLOSED" : "-"
         },
         {
             "REASON" : "2019-06-07_13",
             "TYPE" : "CLOSE",
-            "START" : "2019-06-10",
+            "WHEN" : "2019-06-10",
             "CLOSED" : "-"
+        },
+        {
+            "REASON" : "2019-06-07_13",
+            "TYPE" : "ADD RIGHTS",
+            "START" : "2019-06-10",
+            "END" : "2019-02-02",
+            "CLOSED" : "-",
+            "INFO" : "PO0  +",
+            "WHERE" : "UNIT2"
         }
     ]
 }

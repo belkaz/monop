@@ -34,7 +34,8 @@ function FindUnclosedTasts () {
                     TO : al.TO,
                     START : al.START,
                     END: al.END,
-                    REASON : al.REASON
+                    REASON : al.REASON,
+	            WHEN: al.WHEN
                 })
             }
         })

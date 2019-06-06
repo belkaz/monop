@@ -27,7 +27,7 @@ let initRed = ( state = initState, action ) => {
                         'ID' : x.length
                     });
                     break; 
-                case 1 : 
+                case 1 :                                      
                     x.push( 
                         {
                         'INFO' : 'Add rights ' + action.data.INFO,
@@ -45,7 +45,7 @@ let initRed = ( state = initState, action ) => {
                         'WHERE' : ''+action.data.TO,
                         'WHEN' : '' + action.data.WHENEND,
                         'REASON' : '' + action.data.REASON,
-                        'ACTIVE' : '+',
+                        'ACTIVE' : action.data.WHENEND === "-" ? '-':'+',
                         'ID' : x.length
                     });
                     break;
