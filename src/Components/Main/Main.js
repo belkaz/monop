@@ -4,21 +4,23 @@ import './Main.sass';
 
 import { connect } from 'react-redux';
 import AShowAddTaskBar from './AShowAddTaskBar';
+import AddTask from '../AddTask/AddTask';
 import ALoadData from './ALoadData';
 
 import Task from '../Task/Task';
-import AddTask from '../AddTask/AddTask';
+
 
 class Main extends Component {
   constructor ( props ) {
     super ();
     this.state = {
       arr : []        
-    }    
-  }  
-
+    }
+  }   
+  
   componentDidMount ( ) {    
-    this.setState({ arr : this.genTasks( this.props.tasks ) })
+    this.props.tryToLoadData ()
+    this.setState({ arr : this.genTasks( this.props.tasks ) });  
   };    
   componentWillReceiveProps ( newProps ) {      
     this.setState({ arr : this.genTasks ( newProps.tasks )})    

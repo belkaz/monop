@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App/App';
+import configureStore from './store/configStore';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import initRed from './store/initRed';
-
-let bas = createStore ( initRed , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const bas = configureStore();
 
 ReactDOM.render(
     <Provider store = { bas } >
@@ -16,3 +14,5 @@ ReactDOM.render(
     </Provider>
     ,document.getElementById('root'));
 
+ 
+  

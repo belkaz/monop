@@ -1,28 +1,9 @@
 import initState from './initState';
 
 let initRed = ( state = initState, action ) => { 
-    switch ( action.type ) {
-        case 'LOAD_FROM_SERV' :
-            fetch('http://localhost:9999/unclosed')
-            .then(function(response) {   
-                return response.json();
-            })
-            .then(function(data) {              
-                data.forEach ( el => {
-                    state.tryToAddTask({
-                    typ: 0,
-                    INFO : el.TYPE,
-                    WHO : el.FIO,
-                    WHERE : el.TO,
-                    REASON : el.REASON,
-                    WHEN: el.START         
-                    })              
-                });    
-            })
-            .catch( alert );
-            break;
-        case 'ADD_TASK' :
-            let x = state.tasks;
+    switch ( action.type ) {                    
+        case 'ADD_TASK' : 
+            var x = state.tasks;
             switch ( action.data.typ ) {
                 case 0 : 
                     x.push( 
@@ -115,3 +96,4 @@ let initRed = ( state = initState, action ) => {
 }
 
 export default initRed;
+
