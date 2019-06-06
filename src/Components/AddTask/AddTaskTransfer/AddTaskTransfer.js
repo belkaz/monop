@@ -22,14 +22,14 @@ class AddTaskTransfer extends Component {
     genFIOSelect () {
         let x = [];
         this.props.fios.forEach(element => {
-            x.push ( <option> {element} </option>)
+            x.push ( <option key = {''+element}> {element} </option>)
         });
         return x
     };
     genUnitSelect () {
         let x = [];
         this.props.units.forEach(element => {
-            x.push ( <option> {element} </option>)
+            x.push ( <option key = {''+element}> {element} </option>)
         });
         return x
     }
@@ -99,10 +99,10 @@ class AddTaskTransfer extends Component {
     };
     render () {
         return (
-        <div classname = 'AddTaskTransfer'>
+        <div className = 'AddTaskTransfer'>
             <p 
                 className = 'ATTFioLab ATTLab'
-                onSelect = ''>Who</p>
+                >Who</p>
             <select 
                 className = 'ATTFio ATTel'
                 onChange = { this.FIOhandler } >
@@ -110,7 +110,7 @@ class AddTaskTransfer extends Component {
                 </select>
             <p 
                 className = 'ATTUnitFromLab ATTLab'
-                onSelect = ''>From</p>
+                >From</p>
             <select 
                 className = 'ATTUnitFrom ATTel'
                 onChange = { this.UnitFromhandler } >
@@ -118,7 +118,7 @@ class AddTaskTransfer extends Component {
             </select>
             <p 
                 className = 'ATTUnitToLab ATTLab'
-                onSelect = ''>To</p>
+                >To</p>
             <select 
                 className = 'ATTUnitTo ATTel'
                 onChange = { this.UnitTohandler } >

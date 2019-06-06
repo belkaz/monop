@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import AddTaskClose from './AddTaskClose/AddTaskClose';
 import AddTaskTransfer from './AddTaskTransfer/AddTaskTransfer';
+import AddTaskAdd from './AddTaskAdd/AddTaskAdd';
 
 class AddTask extends Component {
     constructor ( props ) {
@@ -17,21 +18,17 @@ class AddTask extends Component {
     genAddTask () {
         let x = <AddTaskTransfer />
         switch ( this.state.selectedValue ) {
-            case 'Transfer' : {
+            case 'Transfer' : 
                 x = <AddTaskTransfer />
-                break
-            }
-            
-            case 'TempAddRights' : {
-                break
-            }
-            case 'CloseUser' :{
+                break;                      
+            case 'TempAddRights' : 
+                x = <AddTaskAdd />
+                break;            
+            case 'CloseUser' :
                 x = <AddTaskClose />
-                break
-            }
-            case 'LockUser' : {
-                break
-            }
+                break;            
+            case 'LockUser' : 
+                break;            
             default : {}
         }
         return x

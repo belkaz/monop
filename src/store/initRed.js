@@ -27,6 +27,28 @@ let initRed = ( state = initState, action ) => {
                         'ID' : x.length
                     });
                     break; 
+                case 1 : 
+                    x.push( 
+                        {
+                        'INFO' : 'Add rights ' + action.data.INFO,
+                        'WHO' : '' + action.data.WHO,
+                        'WHERE' : ''+action.data.TO,
+                        'WHEN' : '' + action.data.WHENSTART,
+                        'REASON' : '' + action.data.REASON,
+                        'ACTIVE' : '+',
+                        'ID' : x.length
+                    });
+                    x.push( 
+                        {
+                        'INFO' : 'Close rights',
+                        'WHO' : '' + action.data.WHO,
+                        'WHERE' : ''+action.data.TO,
+                        'WHEN' : '' + action.data.WHENEND,
+                        'REASON' : '' + action.data.REASON,
+                        'ACTIVE' : '+',
+                        'ID' : x.length
+                    });
+                    break;
                 case 2 : 
                     x.push( 
                         {

@@ -17,7 +17,7 @@ class AddTaskClose  extends Component {
     genSelect () {
         let x = [];
         this.props.fios.forEach(element => {
-            x.push ( <option> {element} </option>)
+            x.push ( <option key = {''+element}> {element} </option>)
         });
         return x
     };
@@ -52,11 +52,11 @@ class AddTaskClose  extends Component {
     };
     render () {
         return (
-        <div classname = 'AddTaskClose'>
+        <div className = 'AddTaskClose'>
 
             <p 
                 className = 'ATCFioLab'
-                onSelect = ''>Who</p>
+                >Who</p>
             <select 
                 className = 'ATCFio'
                 onChange = { this.FIOhandler } >
