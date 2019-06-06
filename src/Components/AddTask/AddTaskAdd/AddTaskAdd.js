@@ -136,7 +136,7 @@ let mapState = state => {
         fios : state.fios,
         units: state.units
     }
-}
+};
 
 let mapAction = dispatch => {
     return {
