@@ -16,7 +16,8 @@ class AddTaskTransfer extends Component {
             curTO : '',
             curREASON : '',
             curSTime : '08:00',
-            curETime : '20:00'
+            curETime : '20:00',
+            curINFO : ''
         }
     }
     genFIOSelect () {
@@ -76,6 +77,11 @@ class AddTaskTransfer extends Component {
             curSTime : e.target.value
         });  
     };
+    INFOhandler = ( e ) => {
+        this.setState({
+            curINFO : e.target.value
+        })
+    };
     AddTaskCloseHandler = () => {        
             this.props.tryToAddTask ( {
                 typ : 0,
@@ -84,7 +90,8 @@ class AddTaskTransfer extends Component {
                 WHENEND : this.state.curEndDATE + '_' +this.state.curETime,
                 FROM : this.state.curFROM,
                 TO : this.state.curTO,
-                REASON : this.state.curREASON
+                REASON : this.state.curREASON,
+                INFO : this.state.curINFO
             } );   
             this.setState({
                 curFIO : '',
@@ -94,8 +101,12 @@ class AddTaskTransfer extends Component {
                 curTO : '',
                 curREASON : '',
                 curSTime : '08:00',
-                curETime : '20:00'
-            })                  
+                curETime : '20:00',
+                curINFO : ''
+            });
+            let st = 'http://localhost:9999/writeTransfer/'+this.state.curFIO+'/' + JSON.stringify(this.state);
+            console.log ( st )
+            fetch(st);                  
     };
     render () {
         return (
@@ -154,6 +165,13 @@ class AddTaskTransfer extends Component {
                 type = 'text'
                 value = { this.state.curREASON }
                 onChange = { this.REASONhandler }></input>
+            <p 
+                className = 'ATTINFOLab ATTLab'>INFO</p>
+            <input 
+                className = 'ATTINFO ATTel'
+                type = 'text'
+                value = { this.state.curINFO }
+                onChange = { this.INFOhandler }></input>
 
             <button 
                 className = 'ATTBut'

@@ -1,4 +1,4 @@
-let AAddTask = ( inputData ) => {
+let AAddTask = ( inputData ) => {    
     return {
         type : "ADD_TASK",  
         data : inputData      

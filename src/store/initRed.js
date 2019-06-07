@@ -1,4 +1,5 @@
 import initState from './initState';
+import { stat } from 'fs';
 
 let initRed = ( state = initState, action ) => { 
     switch ( action.type ) {                    
@@ -78,7 +79,7 @@ let initRed = ( state = initState, action ) => {
                         'TASKDATE' : '',
                         'ID' : x.length
                     });                
-            };            
+            };                    
             return { 
                 ...state,               
                 tasks : x.map( (el) => { return el }),

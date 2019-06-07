@@ -1,46 +1,88 @@
 {
-    "FIO" : "PetrovPP",
-    "CODE0" : "2222",
-    "CODE1" : "2222",
-    "FILENAME" : "PetrovPP",
-    "UNIT" : "UNIT2",
-    "EMP" : "manager",
-    "CLOSED" : "-",
-    "KEY" : {
-        "ID" : "-",
-        "ENDED" : "-"
+  "FIO": "PetrovPP",
+  "CODE0": "2222",
+  "CODE1": "2222",
+  "FILENAME": "PetrovPP",
+  "UNIT": "UNIT2",
+  "EMP": "manager",
+  "CLOSED": "-",
+  "KEY": {
+    "ID": "-",
+    "ENDED": "-"
+  },
+  "RIGHTS": {
+    "PO0": {
+      "UNIT0": "+"
     },
-    "RIGHTS" : {
-        "PO0" : {"UNIT0" : "+"},
-        "PO1" : {"UNIT0" : "A_B_C_D"},
-        "PO2" : {"UNIT0" : "A_D_C"},
-        "PO4" : {},
-        "PO5": "-"
+    "PO1": {
+      "UNIT0": "A_B_C_D"
     },
-    "LOGS" : [
-        {
-            "REASON" : "2019-06-06_12",
-            "TYPE" : "TRANSFER",
-            "START" : "2019-06-07",
-            "END" : "2019-06-10",
-            "FROM" : "UNIT10",
-            "TO" : "UNIT12",
-            "CLOSED" : "-"
-        },
-        {
-            "REASON" : "2019-06-07_13",
-            "TYPE" : "CLOSE",
-            "WHEN" : "2019-06-10",
-            "CLOSED" : "-"
-        },
-        {
-            "REASON" : "2019-06-07_13",
-            "TYPE" : "ADD RIGHTS",
-            "START" : "2019-06-10",
-            "END" : "2019-02-02",
-            "CLOSED" : "-",
-            "INFO" : "PO0  +",
-            "WHERE" : "UNIT2"
-        }
-    ]
+    "PO2": {
+      "UNIT0": "A_D_C"
+    },
+    "PO4": {},
+    "PO5": "-"
+  },
+  "LOGS": [
+    {
+      "REASON": "2019-06-06_12",
+      "TYPE": "TRANSFER",
+      "START": "2019-06-07",
+      "END": "2019-06-10",
+      "FROM": "UNIT10",
+      "TO": "UNIT12",
+      "CLOSED": "-"
+    },
+    {
+      "REASON": "2019-06-07_13",
+      "TYPE": "CLOSE",
+      "WHEN": "2019-06-10",
+      "CLOSED": "-"
+    },
+    {
+      "REASON": "2019-06-07_13",
+      "TYPE": "ADD RIGHTS",
+      "START": "2019-06-10",
+      "END": "2019-02-02",
+      "CLOSED": "-",
+      "INFO": "PO0  +",
+      "WHERE": "UNIT2"
+    },
+    {
+      "TYPE": "TRANSFER",
+      "FROM": "16403",
+      "TO": "16464",
+      "START": "2019-05-29_08:00",
+      "END": "2019-05-30_20:00",
+      "CLOSED": "-"
+    },
+    {
+      "REASON": "asddasd",
+      "TYPE": "TRANSFER",
+      "FROM": "16402",
+      "TO": "16403",
+      "START": "2019-06-18_08:00",
+      "END": "2019-06-12_20:00",
+      "CLOSED": "-"
+    },
+    {
+      "REASON": "dz 2019-05-99_10999",
+      "TYPE": "TRANSFER",
+      "FROM": "16402",
+      "TO": "16403",
+      "START": "2019-05-29_08:00",
+      "END": "2019-06-12_20:00",
+      "CLOSED": "-"
+    },
+    {
+      "REASON": "2019-06-07_9090",
+      "TYPE": "TRANSFER",
+      "FROM": "16403",
+      "TO": "16464",
+      "START": "2019-06-11_08:00",
+      "END": "2019-06-25_20:00",
+      "INFO": "PO1 +, PO2 AV_AR_AA_ASD_ADQW",
+      "CLOSED": "-"
+    }
+  ]
 }
