@@ -52,10 +52,8 @@ app.get('/unclosed', function ( req, res, next ) {
 
 app.get('/writeTransfer/:fio/:newData', function ( req, res, next)  {
     let fileName = '';       
-    allUsersData.forEach ( el => {
-        console.log('f1 in file ' +el.FIO + ' f in request ' +req.params.fio + ' ' + (el.FIO === req.params.fileName))
-        if ( el.FIO === req.params.fio ) {
-        console.log('IN')
+    allUsersData.forEach ( el => {        
+        if ( el.FIO === req.params.fio ) {        
         fileName = el.FILENAME;
         let rr = []
         el.LOGS.forEach ( al => {
@@ -82,6 +80,12 @@ app.get('/writeTransfer/:fio/:newData', function ( req, res, next)  {
     });
     res.send ('200');        
     next ();	
+})
+
+app.get('/writeClose/:fio/:', function ( req, res, next ) {
+    let fileName = '';
+    res.send('200');
+    next();
 })
 
 app.listen( 9999, function() {
