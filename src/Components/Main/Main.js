@@ -34,7 +34,7 @@ class Main extends Component {
     this.setState({ arr :  tArr});  
   };    
   componentWillReceiveProps ( newProps ) {     
-    let tArr =  this.genTasks( this.sortArr( newProps.tasks ) )
+    let tArr =  this.genTasks( newProps.tasks )
     this.setState({arr : tArr })    
   };
   setbackColor ( taskDate ) {
@@ -67,13 +67,14 @@ class Main extends Component {
         let i = 0;
         let j = 0;
         let xx = [];
-        pr.forEach (element => {
+
+        this.sortArr(pr).forEach (element => {
           if ( element.ACTIVE === '+' ) {
                let x = <Task 
                   data = { element }
                   ll = { lefts[i] }
                   tt = { tops[j] } 
-                  key = { element.ID }
+                  key = { element.ID }                 
                   back = { this.setbackColor ( element.TASKDATE ) } />
                 i += 1;
                 if ( i=== 7) {
