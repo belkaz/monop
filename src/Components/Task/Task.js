@@ -17,7 +17,9 @@ class Task extends Component {
                 className = 'Task'
                 style = {
                     { 'left' : this.props.ll + 'px', 
-                      'top'  : this.props.tt + 'px' } 
+                      'top'  : this.props.tt + 'px',
+                      'backgroundColor' : this.props.back
+                  } 
                 }                
                 id = { this.props.data.ID}>                
                 <p className = 'TaskInfo'> { this.props.data.INFO }</p>

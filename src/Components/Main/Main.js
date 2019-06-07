@@ -17,14 +17,50 @@ class Main extends Component {
       arr : []        
     }
   }   
-  
+  sortArr ( objArr ) {
+    objArr.forEach ( el => {      
+      try {
+        el.TASKDATE = new Date( el.WHEN.split('_')[0] )
+      }
+      catch ( err ) {
+        // el.TASKDATE = el.WHEN
+      }      
+    })    
+    return objArr.sort((a, b) => (a.TASKDATE > b.TASKDATE) ? 1 : -1);
+  }
   componentDidMount ( ) {    
-    this.props.tryToLoadData ()
-    this.setState({ arr : this.genTasks( this.props.tasks ) });  
+    this.props.tryToLoadData ();   
+    let tArr = (this.genTasks ( this.props.tasks ));
+    this.setState({ arr :  tArr});  
   };    
-  componentWillReceiveProps ( newProps ) {      
-    this.setState({ arr : this.genTasks ( newProps.tasks )})    
+  componentWillReceiveProps ( newProps ) {     
+    let tArr =  this.genTasks( this.sortArr( newProps.tasks ) )
+    this.setState({arr : tArr })    
   };
+  setbackColor ( taskDate ) {
+    let color = '#0F0';
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    today = yyyy + '-' + mm + '-' + dd;
+     
+    switch ( new Date(today) - new Date(taskDate) ) {
+      case 0 :
+          color = '#F00';
+          break;
+      case 86400000 :
+          color = '#FF0';
+          break;
+      default :
+          color = '#0F0'
+    }
+    if ( new Date(today) - new Date(taskDate)  > 0 ) {
+      color = '#F00'
+    } 
+    return color;
+  }
   genTasks = ( pr ) => {
         let lefts = [ 50, 300, 550, 800, 1050, 1300, 1550];
         let tops = [ 50, 350, 650, 950, 1250];
@@ -37,7 +73,8 @@ class Main extends Component {
                   data = { element }
                   ll = { lefts[i] }
                   tt = { tops[j] } 
-                  key = { element.ID }/>
+                  key = { element.ID }
+                  back = { this.setbackColor ( element.TASKDATE ) } />
                 i += 1;
                 if ( i=== 7) {
                   i = 0; 

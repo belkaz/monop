@@ -11,9 +11,10 @@ let initRed = ( state = initState, action ) => {
                         'INFO' : 'Transfer to '+ action.data.TO,
                         'WHO' : '' + action.data.WHO,
                         'WHERE' : ''+action.data.TO,
-                        'WHEN' : '' + action.data.WHENSTART,
+                        'WHEN' : '' + action.data.WHENSTART  ,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : '+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });
                     x.push( 
@@ -24,6 +25,7 @@ let initRed = ( state = initState, action ) => {
                         'WHEN' : '' + action.data.WHENEND,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : '+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });
                     break; 
@@ -36,6 +38,7 @@ let initRed = ( state = initState, action ) => {
                         'WHEN' : '' + action.data.WHENSTART,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : '+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });
                     x.push( 
@@ -46,6 +49,7 @@ let initRed = ( state = initState, action ) => {
                         'WHEN' : '' + action.data.WHENEND,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : action.data.WHENEND === "-" ? '-':'+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });
                     break;
@@ -58,6 +62,7 @@ let initRed = ( state = initState, action ) => {
                         'WHEN' : '' + action.data.WHEN,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : '+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });
                     break;                
@@ -70,6 +75,7 @@ let initRed = ( state = initState, action ) => {
                         'WHEN' : '' + action.data.WHEN,
                         'REASON' : '' + action.data.REASON,
                         'ACTIVE' : '+',
+                        'TASKDATE' : '',
                         'ID' : x.length
                     });                
             };            
