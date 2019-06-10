@@ -22,6 +22,7 @@ class AddTaskTransfer extends Component {
     }
     genFIOSelect () {
         let x = [];
+        x.push ( <option key = {''+0}>  </option>)
         this.props.fios.forEach(element => {
             x.push ( <option key = {''+element}> {element} </option>)
         });
@@ -29,6 +30,7 @@ class AddTaskTransfer extends Component {
     };
     genUnitSelect () {
         let x = [];
+        x.push ( <option key = {''+1}>  </option>)
         this.props.units.forEach(element => {
             x.push ( <option key = {''+element}> {element} </option>)
         });

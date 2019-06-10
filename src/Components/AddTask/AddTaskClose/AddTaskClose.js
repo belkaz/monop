@@ -16,6 +16,7 @@ class AddTaskClose  extends Component {
     }
     genSelect () {
         let x = [];
+        x.push ( <option key = {''+0}>  </option>)
         this.props.fios.forEach(element => {
             x.push ( <option key = {''+element}> {element} </option>)
         });

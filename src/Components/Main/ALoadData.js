@@ -1,4 +1,5 @@
 import AAddTask from '../AddTask/AAddTask';
+import ALoadFIOS from './ALoadFIOS';
 
 let ALoadData = (  ) => {    
     return (dispatch) => {        
@@ -6,7 +7,7 @@ let ALoadData = (  ) => {
         .then(function(response) {        
           return response.json();
         })
-        .then(function(data) {
+        .then(function(data) {            
           data.forEach( el => {
             switch ( el.TYPE ) {
                 case 'TRANSFER' :
@@ -41,7 +42,7 @@ let ALoadData = (  ) => {
             }           
           })        
         })
-        .catch( alert )    
+        .catch( alert );       
     }
 }
 

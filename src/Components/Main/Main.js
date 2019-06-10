@@ -7,6 +7,7 @@ import AShowAddTaskBar from './AShowAddTaskBar';
 import AddTask from '../AddTask/AddTask';
 import ALoadData from './ALoadData';
 import AClearTasks from './AClearTask';
+import ALoadFIOServ from './ALoadFIOServ';
 
 import Task from '../Task/Task';
 
@@ -31,7 +32,8 @@ class Main extends Component {
   }
   componentDidMount ( ) {      
       this.props.tryToClearTasks(); 
-      this.props.tryToLoadData();      
+      this.props.tryToLoadData();     
+      this.props.tryToLoadFIOS(); 
       setInterval( () => {
         this.props.tryToClearTasks(); 
         this.props.tryToLoadData();
@@ -124,7 +126,8 @@ let mapAction = dispatch => {
   return {
     tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() ),
     tryToLoadData : y => dispatch ( ALoadData (  )),
-    tryToClearTasks : y => dispatch ( AClearTasks () )
+    tryToClearTasks : y => dispatch ( AClearTasks () ),
+    tryToLoadFIOS : y => dispatch ( ALoadFIOServ () )
   }
 }
  

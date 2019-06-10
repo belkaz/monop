@@ -95,6 +95,11 @@ let initRed = ( state = initState, action ) => {
                 ...state,
                 tasks : []
             };
+        case 'LOAD_FIOS' :
+            return {
+                ...state,
+                fios: action.fios
+            };
         case 'CLOSE_TASK' :
             var y2 = state.tasks;
              y2.forEach ( el => {                

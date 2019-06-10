@@ -66,6 +66,25 @@ app.get('/unclosed', function ( req, res, next ) {
     next();
 });
 
+app.get ('/fios', function ( req, res, next ) {
+    let fios = [];
+    let ff = [];
+    fs.readdirSync('./users/').forEach( el => {
+        ff.push ( el )
+      });
+    ff.forEach( el => {
+         try {
+             let ob = JSON.parse( fs.readFileSync('./users/' +el, 'utf8'));
+             fios.push ( ob.FIO ) 
+         }
+         catch ( err ) {
+             console.log ( el )
+         }
+     });     
+    res.send ( fios );
+    next();
+})
+
 app.get('/writeTransfer/:fio/:newData', function ( req, res, next)  {
     console.log ( 'Write request ')
     let fileName = '';       

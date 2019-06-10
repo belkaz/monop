@@ -44,6 +44,7 @@ class AddTask extends Component {
                         var tt = e.target;
                         this.setState ({ selectedValue : tt.options[ tt.selectedIndex].value });                       
                     } } >
+                    <option> </option>
                     <option>Transfer</option>
                     <option>TempAddRights</option>
                     <option>CloseUser</option>
