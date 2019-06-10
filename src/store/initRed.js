@@ -89,17 +89,22 @@ let initRed = ( state = initState, action ) => {
             return {
                 ...state,
                 addTaskOpacity : state.addTaskOpacity === 0 ? 100 : 0
-            }
+            };     
+        case 'CLEAR_TASKS' : 
+            return {
+                ...state,
+                tasks : []
+            };
         case 'CLOSE_TASK' :
-            let y = state.tasks;
-             y.forEach ( el => {                
+            var y2 = state.tasks;
+             y2.forEach ( el => {                
                 if ( el.ID === action.id ) {
                     el.ACTIVE = '-'
                 }
             })                                          
             return {   
                 ...state,             
-                tasks : y.map( (el) => { return el })               
+                tasks : y2.map( (el) => { return el })               
             };
         default : 
             return state            

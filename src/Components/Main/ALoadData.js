@@ -1,7 +1,7 @@
 import AAddTask from '../AddTask/AAddTask';
 
-let ALoadData = ( data ) => {    
-    return (dispatch) => {
+let ALoadData = (  ) => {    
+    return (dispatch) => {        
         fetch('http://localhost:9999/unclosed')
         .then(function(response) {        
           return response.json();
@@ -41,11 +41,11 @@ let ALoadData = ( data ) => {
             }           
           })        
         })
-        .catch( alert );   
+        .catch( alert )    
     }
 }
 
-export default ALoadData;
+export default ALoadData ;
 
 // END: "2019-04-02_20"
 // FROM: "UNIT1"

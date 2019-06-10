@@ -3,29 +3,43 @@ const app = express();
 const fs = require ('fs');
 const cors = require ('cors');
 
-let files = [];
+// let files = [];
 
-fs.readdirSync('./users/').forEach( el => {
-    files.push ( el )
-});
+// fs.readdirSync('./users/').forEach( el => {
+//     files.push ( el )
+// });
 
-let allUsersData = [];
+// let allUsersData = [];
 
-files.forEach( el => {
-    try {
-        let ob = JSON.parse( fs.readFileSync('./users/' +el, 'utf8'));
-        allUsersData.push ( ob ) 
-    }
-    catch ( err ) {
-        console.log ( el )
-    }
-});
+// files.forEach( el => {
+//     try {
+//         let ob = JSON.parse( fs.readFileSync('./users/' +el, 'utf8'));
+//         allUsersData.push ( ob ) 
+//     }
+//     catch ( err ) {
+//         console.log ( el )
+//     }
+// });
 
 function FindUnclosedTasts () {
+     let allUsersData = [];
+     let files = [];
+     fs.readdirSync('./users/').forEach( el => {
+       files.push ( el )
+     });
+    files.forEach( el => {
+        try {
+            let ob = JSON.parse( fs.readFileSync('./users/' +el, 'utf8'));
+            allUsersData.push ( ob ) 
+        }
+        catch ( err ) {
+            console.log ( el )
+        }
+    });
     let rez = [];
     allUsersData.forEach ( el => {
         let logsArr = el.LOGS;
-        logsArr.forEach ( al => {
+        logsArr.forEach ( al => {            
             if ( al.CLOSED === "-") {
                 rez.push({
                     TYPE : al.TYPE,
@@ -39,14 +53,16 @@ function FindUnclosedTasts () {
                 })
             }
         })
-    })
+    })    
+    console.log ( rez.length );
     return rez;
+    
 }
 
 app.use( cors() )
 
 app.get('/unclosed', function ( req, res, next ) {
-    res.send( FindUnclosedTasts() )
+    res.send( FindUnclosedTasts() );
     next();
 });
 

@@ -104,8 +104,7 @@ class AddTaskTransfer extends Component {
                 curETime : '20:00',
                 curINFO : ''
             });
-            let st = 'http://localhost:9999/writeTransfer/'+this.state.curFIO+'/' + JSON.stringify(this.state);
-            console.log ( st )
+            let st = 'http://localhost:9999/writeTransfer/'+this.state.curFIO+'/' + JSON.stringify(this.state);            
             fetch(st);                  
     };
     render () {

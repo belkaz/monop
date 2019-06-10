@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import AShowAddTaskBar from './AShowAddTaskBar';
 import AddTask from '../AddTask/AddTask';
 import ALoadData from './ALoadData';
+import AClearTasks from './AClearTask';
 
 import Task from '../Task/Task';
 
@@ -28,15 +29,20 @@ class Main extends Component {
     })    
     return objArr.sort((a, b) => (a.TASKDATE > b.TASKDATE) ? 1 : -1);
   }
-  componentDidMount ( ) {    
-    this.props.tryToLoadData ();   
-    let tArr = (this.genTasks ( this.props.tasks ));
-    this.setState({ arr :  tArr});  
+  componentDidMount ( ) {      
+      this.props.tryToClearTasks(); 
+      this.props.tryToLoadData();      
+      setInterval( () => {
+        this.props.tryToClearTasks(); 
+        this.props.tryToLoadData();
+      }, 1000)      
   };    
+
   componentWillReceiveProps ( newProps ) {     
-    let tArr =  this.genTasks( newProps.tasks )
-    this.setState({arr : tArr })    
+    let tArr = (this.genTasks ( this.props.tasks ));
+    this.setState({ arr :  tArr});
   };
+
   setbackColor ( taskDate ) {
     let color = '#0F0';
     var today = new Date();
@@ -60,6 +66,9 @@ class Main extends Component {
       color = '#F00'
     } 
     return color;
+  };
+  componentWillUpdate () {
+
   }
   genTasks = ( pr ) => {
         let lefts = [ 50, 300, 550, 800, 1050, 1300, 1550];
@@ -89,7 +98,14 @@ class Main extends Component {
   clickHandler = () => {      
     this.props.tryToSwitchATBar()
   };    
+ 
   render() {    
+    // setTimeout( ()=> {  
+    //   this.props.tryToClearTasks(); 
+    //   this.props.tryToLoadData();
+    //   let tArr = (this.genTasks ( this.props.tasks ));
+    //   this.setState({ arr :  tArr}); 
+    // }, 5000 ); 
     return (
       <div 
         className = 'Main'
@@ -113,7 +129,8 @@ let mapS = state => {
 let mapAction = dispatch => {
   return {
     tryToSwitchATBar : x => dispatch ( AShowAddTaskBar() ),
-    tryToLoadData : y => dispatch ( ALoadData (  ))
+    tryToLoadData : y => dispatch ( ALoadData (  )),
+    tryToClearTasks : y => dispatch ( AClearTasks () )
   }
 }
  
