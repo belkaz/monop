@@ -25,6 +25,16 @@
   },
   "LOGS": [
     {
+      "REASON": "asdas",
+      "TYPE": "TRANSFER",
+      "FROM": "16404",
+      "TO": "16402",
+      "START": "2019-06-12_08:00",
+      "END": "2019-06-12_20:00",
+      "INFO": "dasdasd",
+      "CLOSED": "-"
+    },
+    {
       "REASON": "2019-06-02_12",
       "TYPE": "TRANSFER",
       "FROM": "UNIT1",
@@ -45,6 +55,6 @@
       "TYPE": "CLOSE",
       "WHEN": "2019-06-06",
       "CLOSED": "-"
-    }    
+    }
   ]
 }
