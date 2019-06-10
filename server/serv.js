@@ -3,13 +3,13 @@ const app = express();
 const fs = require ('fs');
 const cors = require ('cors');
 
-// let files = [];
+let files = [];
 
 // fs.readdirSync('./users/').forEach( el => {
 //     files.push ( el )
 // });
 
-// let allUsersData = [];
+let allUsersData = [];
 
 // files.forEach( el => {
 //     try {
@@ -22,8 +22,8 @@ const cors = require ('cors');
 // });
 
 function FindUnclosedTasts () {
-     let allUsersData = [];
-     let files = [];
+     allUsersData = [];
+     files = [];
      fs.readdirSync('./users/').forEach( el => {
        files.push ( el )
      });
@@ -67,6 +67,7 @@ app.get('/unclosed', function ( req, res, next ) {
 });
 
 app.get('/writeTransfer/:fio/:newData', function ( req, res, next)  {
+    console.log ( 'Write request ')
     let fileName = '';       
     allUsersData.forEach ( el => {        
         if ( el.FIO === req.params.fio ) {        

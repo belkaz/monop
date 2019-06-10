@@ -45,7 +45,6 @@
       "TYPE": "CLOSE",
       "WHEN": "2019-06-06",
       "CLOSED": "-"
-    },
-    "{\"TYPE\":\"TRANSFER\"}"
+    }    
   ]
 }

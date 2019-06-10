@@ -35,7 +35,7 @@ class Main extends Component {
       setInterval( () => {
         this.props.tryToClearTasks(); 
         this.props.tryToLoadData();
-      }, 1000)      
+      }, 60000)      
   };    
 
   componentWillReceiveProps ( newProps ) {     
@@ -100,12 +100,6 @@ class Main extends Component {
   };    
  
   render() {    
-    // setTimeout( ()=> {  
-    //   this.props.tryToClearTasks(); 
-    //   this.props.tryToLoadData();
-    //   let tArr = (this.genTasks ( this.props.tasks ));
-    //   this.setState({ arr :  tArr}); 
-    // }, 5000 ); 
     return (
       <div 
         className = 'Main'

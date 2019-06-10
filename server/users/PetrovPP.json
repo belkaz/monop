@@ -83,6 +83,16 @@
       "END": "2019-06-25_20:00",
       "INFO": "PO1 +, PO2 AV_AR_AA_ASD_ADQW",
       "CLOSED": "-"
+    },
+    {
+      "REASON": "sada",
+      "TYPE": "TRANSFER",
+      "FROM": "16403",
+      "TO": "16464",
+      "START": "2019-06-05_08:00",
+      "END": "2019-05-30_20:00",
+      "INFO": "asdasd",
+      "CLOSED": "-"
     }
   ]
 }
