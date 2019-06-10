@@ -1,7 +1,8 @@
-let ACloseTask = ( id ) => {
+let ACloseTask = id => {
     return {
-        type : 'CLOSE_TASK',
-        id : id
-    }
-}
+      type: "CLOSE_TASK",
+      id: id
+    };
+  };
 export default ACloseTask;
+  
